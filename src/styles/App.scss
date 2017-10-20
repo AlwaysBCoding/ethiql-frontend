@@ -1,0 +1,48 @@
+// Z-Indicies
+
+// Libs
+
+// Imports
+@import "colors";
+
+// Globals
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: $link-blue;
+
+  &:visited {
+    color: #1678c2;
+  }
+}
+
+*:focus {
+  outline: none;
+}
+
+// Constants
+
+// Layout
+.view-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
