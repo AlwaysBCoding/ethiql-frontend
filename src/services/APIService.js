@@ -6,7 +6,7 @@ class APIService {
     this.endpoint = config.endpoint
   }
 
-  queryCost() {
+  queryCost({queryText}) {
     var deferred = Q.defer()
     var headers = new Headers()
     headers.append("Content-Type", "application/json")
@@ -16,9 +16,9 @@ class APIService {
       headers: headers
     }
 
-    fetch(`${this.endpoint}/data`, fetchConfig)
+    fetch(`${this.endpoint}/api/sql?q=${queryText}`, fetchConfig)
     .then((response) => {
-      deferred.resolve(response.json())
+      deferred.resolve(response.json()) 
     })
     .catch((error) => {
       deferred.reject(error)
@@ -55,4 +55,4 @@ class APIService {
 
 }
 
-export default new APIService({endpoint: "http://127.0.0.1"})
+export default new APIService({endpoint: "http://127.0.0.1:3000"})

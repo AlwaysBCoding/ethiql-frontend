@@ -8,14 +8,14 @@ class QueryResult extends Component {
     var QueryResultTableData = []
 
     if(this.props.queryResult.length > 0) {
-      _.each(this.props.queryResult[0], (header) => {
+      _.each(_.keys(this.props.queryResult[0]), (header) => {
         QueryResultTableHeaders.push(<th key={header}>{header}</th>)
       })
 
-      _.each(_.drop(this.props.queryResult), (row, index) => {
+      _.each(this.props.queryResult, (row, index) => {
         var QueryResultTableRowData = []
 
-        _.each(row, (item, index) => {
+        _.each(_.values(row), (item, index) => {
           QueryResultTableRowData.push(
             <td key={`item-${index}`}>
               {item}

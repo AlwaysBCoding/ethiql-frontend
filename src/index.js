@@ -55,7 +55,10 @@ class App extends Component {
 
     // CalculateCost
     this.eventEmitter.addListener("calculateCost", ({}) => {
-      console.log(`Calculate Cost`)
+      APIService.queryCost({queryText: this.state.currentQuery})
+      .then((data) => {
+        console.log(data)
+      })
     })
 
     // sendQuery
