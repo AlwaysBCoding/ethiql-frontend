@@ -50,6 +50,7 @@ class App extends Component {
 
     // UpdateQuery
     this.eventEmitter.addListener("updateQuery", ({queryText}) => {
+      // console.log(`UPDATE CURRENT QUERY: ${queryText}`)
       this.setState({currentQuery: queryText})
     })
 
@@ -85,7 +86,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="view-container">
-          <TextEditor eventEmitter={this.eventEmitter} />
+          <TextEditor
+            eventEmitter={this.eventEmitter}
+            currentQuery={this.state.currentQuery} />
           <ActionButtons eventEmitter={this.eventEmitter} />
           <QueryResult
             eventEmitter={this.eventEmitter}

@@ -1,4 +1,9 @@
 import React, { Component } from 'react'
+import brace from 'brace'
+import AceEditor from 'react-ace'
+
+import 'brace/mode/sql'
+import 'brace/theme/cobalt'
 
 class TextEditor extends Component {
 
@@ -8,18 +13,22 @@ class TextEditor extends Component {
     }
   }
 
-  _handleBlur(e) {
+  _handleChange(text) {
     this.props.eventEmitter.emit("updateQuery", {
-      queryText: e.target.value
+      queryText: text
     })
   }
 
   render() {
     return (
       <div className="text-editor">
-        <textarea
-          onBlur={(e) => { this._handleBlur(e) }}>
-        </textarea>
+        <AceEditor
+          mode="sql"
+          theme="cobalt"
+          onChange={(text) => { this._handleChange(text) }}
+          value={this.props.currentQuery}
+          name="main-text-editor"
+          editorProps={{}} />
       </div>
     )
   }

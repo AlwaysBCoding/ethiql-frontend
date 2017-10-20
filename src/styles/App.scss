@@ -53,9 +53,9 @@ a {
   justify-content: center;
   align-items: center;
 
-  textarea {
-    height: 100px;
-    width: 250px;
+  #main-text-editor {
+    height: 200px !important;
+    width: 500px !important;
   }
 }
 

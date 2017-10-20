@@ -32,9 +32,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .text-editor textarea {
-    height: 100px;
-    width: 250px; }
+  .text-editor #main-text-editor {
+    height: 200px !important;
+    width: 500px !important; }
 
 .query-result {
   margin-top: 25px;
