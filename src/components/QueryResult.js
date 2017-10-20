@@ -9,7 +9,7 @@ class QueryResult extends Component {
 
     if(this.props.queryResult.length > 0) {
       _.each(_.keys(this.props.queryResult[0]), (header) => {
-        QueryResultTableHeaders.push(<th key={header}>{header}</th>)
+        QueryResultTableHeaders.push(<th key={header} className="table-header-item">{header}</th>)
       })
 
       _.each(this.props.queryResult, (row, index) => {
@@ -17,14 +17,14 @@ class QueryResult extends Component {
 
         _.each(_.values(row), (item, index) => {
           QueryResultTableRowData.push(
-            <td key={`item-${index}`}>
+            <td className="table-body-item" key={`item-${index}`}>
               {item}
             </td>
           )
         })
 
         QueryResultTableData.push(
-          <tr key={`row-${index}`}>
+          <tr className="table-body-row" key={`row-${index}`}>
             {QueryResultTableRowData}
           </tr>
         )
@@ -33,13 +33,11 @@ class QueryResult extends Component {
 
     return (
       <div className="query-result">
-        <table className="query-result-table">
-          <thead>
-            <tr>
-              {QueryResultTableHeaders}
-            </tr>
+        <table className="query-result-table" cellspacing="0" cellpadding="0">
+          <thead className="table-header">
+            {QueryResultTableHeaders}
           </thead>
-          <tbody>
+          <tbody className="table-body">
             {QueryResultTableData}
           </tbody>
         </table>

@@ -101,6 +101,60 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(to right, #25c481, #25b7c4);
+  overflow: scroll;
+
+  table {
+    border: none;
+  }
+
+  thead {
+    background-color: rgba(255, 255, 255, 0.3);
+
+    th {
+      color: white;
+      font-weight: bold;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      &:not(:last-child) {
+        border-right: 2px solid black;
+      }
+    }
+
+  }
+
+  tbody {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-start;
+    // align-items: center;
+
+    tr {
+      // display: flex;
+      // flex-direction: row;
+      // justify-content: space-between;
+      // align-items: center;
+
+      td {
+        font-family: monospace;
+        text-align: center;
+        vertical-align: middle;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &:not(:last-child) {
+          border-right: 2px solid black;
+        }
+
+      }
+    }
+  }
 }
 
 .action-buttons {
@@ -132,11 +186,5 @@ a {
   .auth-display {
     padding: 5px;
     background-color: lime;
-  }
-}
-
-table {
-  thead {
-    border-bottom: 1px solid black;
   }
 }

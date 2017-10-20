@@ -18,7 +18,7 @@ class APIService {
 
     fetch(`${this.endpoint}/api/sql?q=${queryText}`, fetchConfig)
     .then((response) => {
-      deferred.resolve(response.json()) 
+      deferred.resolve(response.json())
     })
     .catch((error) => {
       deferred.reject(error)

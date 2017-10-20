@@ -136,7 +136,33 @@ a {
   margin-top: 25px;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  background: linear-gradient(to right, #25c481, #25b7c4);
+  overflow: scroll; }
+  .query-result table {
+    border: none; }
+  .query-result thead {
+    background-color: rgba(255, 255, 255, 0.3); }
+    .query-result thead th {
+      color: white;
+      font-weight: bold;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      padding-right: 10px; }
+      .query-result thead th:not(:last-child) {
+        border-right: 2px solid black; }
+  .query-result tbody tr td {
+    font-family: monospace;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px; }
+    .query-result tbody tr td:not(:last-child) {
+      border-right: 2px solid black; }
 
 .action-buttons {
   width: 25%;
@@ -162,8 +188,5 @@ a {
   .eth-auth .auth-display {
     padding: 5px;
     background-color: lime; }
-
-table thead {
-  border-bottom: 1px solid black; }
 
 /*# sourceMappingURL=App.css.map */
