@@ -28,4 +28,41 @@ a {
   justify-content: flex-start;
   align-items: center; }
 
+.text-editor {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .text-editor textarea {
+    height: 100px;
+    width: 250px; }
+
+.query-result {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.action-buttons {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  .action-buttons .action-button {
+    padding: 5px;
+    cursor: pointer; }
+    .action-buttons .action-button.calculate-cost {
+      background-color: coral; }
+    .action-buttons .action-button.send-query {
+      background-color: skyblue; }
+
+.eth-auth {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .eth-auth .auth-display {
+    padding: 5px;
+    background-color: lime; }
+
 /*# sourceMappingURL=App.css.map */

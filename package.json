@@ -7,10 +7,12 @@
   },
   "dependencies": {
     "events": "^1.1.1",
+    "firebase": "^4.6.0",
     "lodash": "^4.17.4",
     "q": "^1.5.1",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "web3": "0.17.0-alpha"
   },
   "scripts": {
     "start": "react-scripts start",

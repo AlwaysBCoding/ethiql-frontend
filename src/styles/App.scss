@@ -46,3 +46,55 @@ a {
   justify-content: flex-start;
   align-items: center;
 }
+
+// Components
+.text-editor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  textarea {
+    height: 100px;
+    width: 250px;
+  }
+}
+
+.query-result {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-buttons {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .action-button {
+    padding: 5px;
+    cursor: pointer;
+
+    &.calculate-cost {
+      background-color: coral;
+    }
+
+    &.send-query {
+      background-color: skyblue;
+    }
+  }
+}
+
+.eth-auth {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .auth-display {
+    padding: 5px;
+    background-color: lime;
+  }
+}
