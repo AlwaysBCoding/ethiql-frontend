@@ -18,7 +18,7 @@ class QueryResult extends Component {
         _.each(_.values(row), (item, index) => {
           QueryResultTableRowData.push(
             <td className="table-body-item" key={`item-${index}`}>
-              {item}
+              {JSON.stringify(item)}
             </td>
           )
         })
