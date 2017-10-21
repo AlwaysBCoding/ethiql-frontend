@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import _ from 'lodash'
 import brace from 'brace'
 import AceEditor from 'react-ace'
 
@@ -13,19 +14,21 @@ class TextEditor extends Component {
     }
   }
 
-  _handleChange(text) {
-    this.props.eventEmitter.emit("updateQuery", {
+  _handleChange(text, eventEmitter) {
+    eventEmitter.emit("updateQuery", {
       queryText: text
     })
   }
 
   render() {
+    var debouncedFunction = _.debounce(this._handleChange, 3000, {})
+
     return (
       <div className="text-editor">
         <AceEditor
           mode="sql"
           theme="cobalt"
-          onChange={(text) => { this._handleChange(text) }}
+          onChange={(text) => { debouncedFunction(text, this.props.eventEmitter) }}
           value={this.props.currentQuery}
           name="main-text-editor"
           editorProps={{}} />

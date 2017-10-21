@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   componentWillMount() {
+    window.APIService = APIService
     // FIREBASE
     // =====================
     window.firebase = firebase.initializeApp({
@@ -51,25 +52,36 @@ class App extends Component {
     // UpdateQuery
     this.eventEmitter.addListener("updateQuery", ({queryText}) => {
       this.setState({currentQuery: queryText})
+      APIService.queryCost({queryText: this.state.currentQuery})
+      .then((data) => {
+        this.setState({currentCost: data.cost})
+      })
     })
 
     // CalculateCost
     this.eventEmitter.addListener("calculateCost", ({}) => {
       APIService.queryCost({queryText: this.state.currentQuery})
       .then((data) => {
-        console.log(data)
+        alert(`QUERY COST: ${data.cost}`)
       })
     })
 
     // sendQuery
     this.eventEmitter.addListener("sendQuery", ({}) => {
-      this.state.ethAuth.eth.sendTransaction({
-        to: "0x1111111111111111111111111111111111111111",
-        from: this.state.ethAuth.eth.accounts[0],
-        value: 1e18,
-        data: this.state.ethAuth.toHex(this.state.currentQuery)
-      }, (txHash) => {
-        console.log(txHash)
+      APIService.queryCost({queryText: this.state.currentQuery})
+      .then((data) => {
+        this.state.ethAuth.eth.sendTransaction({
+          to: "0x42fa96be3c42131955e57fd89a086b5d82690505",
+          from: this.state.ethAuth.eth.accounts[0],
+          value: data.cost,
+          data: this.state.ethAuth.toHex(this.state.currentQuery)
+        }, (error, txHash) => {
+          APIService.sendTxHash({txHash})
+          .then((response) => {
+            console.log(`GOT RESPONSE`)
+            console.log(response)
+          })
+        })
       })
     })
   }
@@ -98,7 +110,9 @@ class App extends Component {
               eventEmitter={this.eventEmitter}
               currentQuery={this.state.currentQuery} />
             <div className="flex-spacer" />
-            <ActionButtons eventEmitter={this.eventEmitter} />
+            <ActionButtons
+              eventEmitter={this.eventEmitter}
+              currentCost={this.state.currentCost} />
           </div>
           <QueryResult
             eventEmitter={this.eventEmitter}

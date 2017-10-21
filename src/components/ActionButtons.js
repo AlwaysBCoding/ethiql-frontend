@@ -19,15 +19,16 @@ class ActionButtons extends Component {
   render() {
     return (
       <div className="action-buttons">
-        <div
+        {/*<div
           className="action-button gray-button"
           onClick={(e) => { this._calculateCost(e) }}>
           <p>CALCULATE COST</p>
-        </div>
+        </div>*/}
         <div
           className="action-button green-button"
           onClick={(e) => { this._sendQuery(e) }}>
           <p>SEND QUERY</p>
+          <p>{`Current Cost: ${this.props.currentCost}`}</p>
         </div>
       </div>
     )

@@ -101,7 +101,8 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #25c481, #25b7c4);
+  // background: linear-gradient(to right, #25c481, #25b7c4);
+  background: linear-gradient(to right, #E2E5EC, lighten(#E2E5EC, 10%));
   overflow: scroll;
 
   table {
@@ -109,10 +110,10 @@ a {
   }
 
   thead {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.5);
 
     th {
-      color: white;
+      color: black;
       font-weight: bold;
       padding-top: 5px;
       padding-bottom: 5px;
@@ -138,11 +139,15 @@ a {
       // justify-content: space-between;
       // align-items: center;
 
+      &:nth-child(even) {
+        background-color: white;
+      }
+
       td {
         font-family: monospace;
         text-align: center;
         vertical-align: middle;
-        color: white;
+        color: black;
         font-size: 14px;
         font-weight: bold;
         padding-left: 10px;
@@ -165,6 +170,10 @@ a {
   align-items: center;
 
   .action-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     height: 50%;
     width: 100%;

@@ -16,7 +16,33 @@ class APIService {
       headers: headers
     }
 
-    fetch(`${this.endpoint}/api/sql?q=${queryText}`, fetchConfig)
+    fetch(`${this.endpoint}/api/explain?q=${encodeURI(queryText)}`, fetchConfig)
+    .then((response) => {
+      deferred.resolve(response.json())
+    })
+    .catch((error) => {
+      deferred.reject(error)
+    })
+
+    return deferred.promise
+  }
+
+  sendTxHash({txHash}) {
+    var deferred = Q.defer()
+    var headers = new Headers()
+    headers.append("Content-Type", "application/json")
+
+    var apiData = {
+      "tx": txHash
+    }
+
+    var fetchConfig = {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(apiData)
+    }
+
+    fetch(`${this.endpoint}/api/tx`, fetchConfig)
     .then((response) => {
       deferred.resolve(response.json())
     })
