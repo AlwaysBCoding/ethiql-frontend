@@ -119,6 +119,7 @@ a {
       padding-bottom: 5px;
       padding-left: 10px;
       padding-right: 10px;
+      font-size: 12px;
 
       &:not(:last-child) {
         border-right: 2px solid black;
@@ -148,8 +149,8 @@ a {
         text-align: center;
         vertical-align: middle;
         color: black;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 10px;
+        // font-weight: bold;
         padding-left: 10px;
         padding-right: 10px;
 
