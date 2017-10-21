@@ -21,7 +21,7 @@ class TextEditor extends Component {
   }
 
   render() {
-    var debouncedFunction = _.debounce(this._handleChange, 3000, {})
+    var debouncedFunction = _.debounce(this._handleChange, 2500, {})
 
     return (
       <div className="text-editor">
